@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'dune-api-v1.onrender.com',
-    'localhost',
+    '127.0.0.1',
 ]
 
 
