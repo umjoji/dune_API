@@ -28,7 +28,7 @@ class Book(models.Model):
     id = models.AutoField(
         primary_key=True, help_text="Unique ID for this book")
     title = models.CharField(max_length=200, help_text="Enter a book title.")
-    year = models.PositiveSmallIntegerField()
+    year_of_release = models.PositiveSmallIntegerField()
     author = models.ManyToManyField('Author')
 
     wiki_url = models.CharField(max_length=200)
@@ -80,7 +80,8 @@ class Comic(models.Model):
     id = models.AutoField(
         primary_key=True, help_text="Unique ID for this comic")
     title = models.CharField(max_length=200, help_text="Enter a comic title.")
-    year = models.PositiveSmallIntegerField()
+    year_of_release = models.PositiveSmallIntegerField()
+
     author = models.ManyToManyField("Author")
 
     illustrator = models.ManyToManyField("Illustrator")
@@ -134,7 +135,8 @@ class Movie(models.Model):
     id = models.AutoField(
         primary_key=True, help_text="Unique ID for this movie")
     title = models.CharField(max_length=200, help_text="Enter a movie title.")
-    year = models.PositiveSmallIntegerField()
+    year_of_release = models.PositiveSmallIntegerField()
+
     director = models.ManyToManyField("Director")
     wiki_url = models.CharField(max_length=200)
 
@@ -185,7 +187,8 @@ class Series(models.Model):
     id = models.AutoField(
         primary_key=True, help_text="Unique ID for this series")
     title = models.CharField(max_length=200, help_text="Enter a series title.")
-    year = models.PositiveSmallIntegerField()
+    year_of_release = models.PositiveSmallIntegerField()
+
     director = models.ManyToManyField("Director")
     wiki_url = models.CharField(max_length=200)
 
@@ -219,7 +222,8 @@ class ShortStories(models.Model):
         help_text="Unique ID for this short story")
     title = models.CharField(
         max_length=200, help_text="Enter a short story title.")
-    year = models.PositiveSmallIntegerField()
+    year_of_release = models.PositiveSmallIntegerField()
+
     author = models.ManyToManyField("Author")
     wiki_url = models.CharField(max_length=200)
 

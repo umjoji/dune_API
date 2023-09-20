@@ -32,7 +32,7 @@ class BookSerializer(serializers.ModelSerializer):
             'id',
             'title',
             'author',
-            'year',
+            'year_of_release',
             'summary',
         )
 
@@ -48,7 +48,7 @@ class ComicSerializer(serializers.ModelSerializer):
             'title',
             'author',
             'illustrator',
-            'year',
+            'year_of_release',
             'summary',
         )
 
@@ -73,7 +73,7 @@ class MovieSerializer(serializers.ModelSerializer):
             'id',
             'title',
             'director',
-            'year',
+            'year_of_release',
             'summary',
         )
 
@@ -107,7 +107,7 @@ class SeriesSerializer(serializers.ModelSerializer):
             'id',
             'title',
             'director',
-            'year',
+            'year_of_release',
             'summary',
         )
 
@@ -121,6 +121,6 @@ class ShortStoriesSerializer(serializers.ModelSerializer):
             'id',
             'title',
             'author',
-            'year',
+            'year_of_release',
             'summary',
         )
