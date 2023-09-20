@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-z@0dns1m#6bto&hzi($9r714ej4^hgyq_-nnbc#c)q0+g09*&+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'dune-api-v1.onrender.com',
+    'localhost',
+]
 
 
 # Application definition
