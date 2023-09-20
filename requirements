@@ -1,9 +1,12 @@
 asgiref==3.7.2
+autopep8==2.0.4
 backports.zoneinfo==0.2.1
-Django==3.2.21
+Django==4.2.4
 djangorestframework==3.14.0
+gunicorn==21.2.0
+packaging==23.1
+pycodestyle==2.11.0
 pytz==2023.3
 sqlparse==0.4.4
 tomli==2.0.1
 typing-extensions==4.7.1
-gunicorn==21.2.0
