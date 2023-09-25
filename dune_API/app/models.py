@@ -34,7 +34,8 @@ class Book(models.Model):
     wiki_url = models.CharField(max_length=200)
 
     summary = models.TextField(
-        max_length=1000, help_text='Enter a brief description of the book')
+        max_length=1000, help_text='Enter a brief description of the book',
+        blank=True,)
     # isbn = models.CharField('ISBN', max_length=13, help_text='13 Character <a href="https://www.isbn-international.org/content/what-isbn">ISBN number</a>')
 
     # ManyToManyField used because genre can contain many books. Books can cover many genres.
@@ -84,11 +85,12 @@ class Comic(models.Model):
 
     author = models.ManyToManyField("Author")
 
-    illustrator = models.ManyToManyField("Illustrator")
-    wiki_url = models.CharField(max_length=200)
+    illustrator = models.ManyToManyField("Illustrator", blank=True)
+    wiki_url = models.CharField(max_length=200, blank=True)
 
     summary = models.TextField(
-        max_length=1000, help_text='Enter a brief description of the comic')
+        max_length=1000, help_text='Enter a brief description of the comic',
+        blank=True)
     # isbn = models.CharField('ISBN', max_length=13, help_text='13 Character <a href="https://www.isbn-international.org/content/what-isbn">ISBN number</a>')
 
     # ManyToManyField used because genre can contain many comics. Comics can cover many genres.
@@ -141,7 +143,8 @@ class Movie(models.Model):
     wiki_url = models.CharField(max_length=200)
 
     summary = models.TextField(
-        max_length=1000, help_text='Enter a brief description of the movie')
+        max_length=1000, help_text='Enter a brief description of the movie',
+        blank=True)
     # isbn = models.CharField('ISBN', max_length=13, help_text='13 Character <a href="https://www.isbn-international.org/content/what-isbn">ISBN number</a>')
 
     # ManyToManyField used because genre can contain many movies. Movies can cover many genres.
@@ -193,7 +196,8 @@ class Series(models.Model):
     wiki_url = models.CharField(max_length=200)
 
     summary = models.TextField(
-        max_length=1000, help_text='Enter a brief description of the series')
+        max_length=1000, help_text='Enter a brief description of the series',
+        blank=True)
     # isbn = models.CharField('ISBN', max_length=13, help_text='13 Character <a href="https://www.isbn-international.org/content/what-isbn">ISBN number</a>')
 
     # ManyToManyField used because genre can contain many series. Series can cover many genres.
@@ -228,7 +232,8 @@ class ShortStories(models.Model):
     wiki_url = models.CharField(max_length=200)
 
     summary = models.TextField(
-        max_length=1000, help_text='Enter a brief description of the short story')
+        max_length=1000, help_text='Enter a brief description of the short story',
+        blank=True)
     # isbn = models.CharField('ISBN', max_length=13, help_text='13 Character <a href="https://www.isbn-international.org/content/what-isbn">ISBN number</a>')
 
     # ManyToManyField used because genre can contain many short stories. Short stories can cover many genres.

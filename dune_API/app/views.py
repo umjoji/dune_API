@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from django.urls import reverse
+from django.http import HttpResponse
+from django.views import View
 from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -28,6 +31,28 @@ from .serializers import (
 
 
 # Create your views here.
+
+
+class IndexView(View):
+    def get(self, request):
+        # Create a list of URLs with their names
+        url_list = [
+            ('Dune Quotes', reverse('quotes')),  # Replace 'dune-quotes' with your actual URL name
+            ('Dune Books', reverse('books')),    # Replace 'dune-books' with your actual URL name
+            ('Dune Movies', reverse('movies')),
+            ('Dune Short Stories', reverse('short_stories')),
+            ('Dune Comics', reverse('comics')),
+            ('Dune Series', reverse('series'))
+            # Add more URLs as needed
+        ]
+
+        # Create an HTML list of links
+        link_list = '\n'.join(f'<li><a href="{url}">{name}</a></li>' for name, url in url_list)
+
+        # Create the HTML content for the index page
+        html_content = f'<h1>Welcome to My Dune App</h1><ul>{link_list}</ul>'
+
+        return HttpResponse(html_content)
 
 
 # class AllAuthorsView(APIView):
