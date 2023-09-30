@@ -1,0 +1,19 @@
+{% extends  "base.html" %}
+
+{% block title %}
+    All Series
+{% endblock %}
+
+{% block content %}
+
+    <p><a href="/">Home</a></p>
+    <h1>Series</h1>
+
+    <ul>
+    {% for x in Series %}
+        <li><a href="series_details/{{ x.id }}">{{ x.title }}</a></li>
+        {% empty %}
+        <li>No Series</li>
+    {% endfor %}
+    </ul>
+{% endblock %}

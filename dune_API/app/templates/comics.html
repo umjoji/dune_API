@@ -1,0 +1,19 @@
+{% extends  "base.html" %}
+
+{% block title %}
+    All Comics
+{% endblock %}
+
+{% block content %}
+
+    <p><a href="/">Home</a></p>
+    <h1>Comics</h1>
+
+    <ul>
+    {% for x in comics %}
+        <li><a href="comic_details/{{ x.id }}">{{ x.title }}</a></li>
+        {% empty %}
+        <li>No comics</li>
+    {% endfor %}
+    </ul>
+{% endblock %}

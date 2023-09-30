@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics, permissions, status
+from django.http import HttpResponse
+from django.template import loader
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import (
@@ -28,6 +30,110 @@ from .serializers import (
 
 
 # Create your views here.
+
+
+def index(request):
+    template = loader.get_template("index.html")
+    return HttpResponse(template.render())
+
+
+def quotes(request):
+    quotes = Quote.objects.all().values()  # get all members
+    template = loader.get_template('quotes.html')
+    context = {
+        'quotes': quotes,
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def books(request):
+    books = Book.objects.all().values()  # get all members
+    template = loader.get_template('books.html')
+    context = {
+        'books': books,
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def movies(request):
+    movies = Movie.objects.all().values()  # get all members
+    template = loader.get_template('movies.html')
+    context = {
+        'movies': movies,
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def comics(request):
+    quotes = Comic.objects.all().values()  # get all members
+    template = loader.get_template('comics.html')
+    context = {
+        'comics': comics,
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def short_stories(request):
+    short_stories = ShortStories.objects.all().values()  # get all members
+    template = loader.get_template('short_stories.html')
+    context = {
+        'short_stories': short_stories,
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def series(request):
+    series = Series.objects.all().values()  # get all members
+    template = loader.get_template('series.html')
+    context = {
+        'series': series,
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def book_details(request, pk):
+    book = Book.objects.get(pk=pk)
+    template = loader.get_template('books_detail.html')
+    context = {
+        'book': book,
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def movie_details(request, pk):
+    movie = Movie.objects.get(pk=pk)
+    template = loader.get_template('movies_detail.html')
+    context = {
+        'movie': movie,
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def comic_details(request, pk):
+    comic = Comic.objects.get(pk=pk)
+    template = loader.get_template('comics_detail.html')
+    context = {
+        'comic': comic,
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def series_details(request, pk):
+    series = Series.objects.get(pk=pk)
+    template = loader.get_template('series_details.html')
+    context = {
+        'series': series,
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def short_stories_details(request, pk):
+    short_stories = ShortStories.objects.get(pk=pk)
+    template = loader.get_template('short_stories_detail.html')
+    context = {
+        'short_stories': short_stories,
+    }
+    return HttpResponse(template.render(context, request))
 
 
 # class AllAuthorsView(APIView):
@@ -226,7 +332,6 @@ class ComicDetailView(APIView):
     #     director = self.get_object(pk)
     #     director.delete()
     #     return Response(status=status.HTTP_204_NO_CONTENT)
-
 
 class AllQuoteView(APIView):
 
