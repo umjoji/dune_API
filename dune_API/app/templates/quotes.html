@@ -1,0 +1,19 @@
+{% extends  "base.html" %}
+
+{% block title %}
+    All Quotes
+{% endblock %}
+
+{% block content %}
+
+    <p><a href="/">Home</a></p>
+    <h1>Quotes</h1>
+
+    <ul>
+    {% for x in quotes %}
+        <li>{{ x.quote }}</a></li>
+        {% empty %}
+        <li>No quotes</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
