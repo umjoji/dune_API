@@ -73,11 +73,11 @@ def comics(request):
     return HttpResponse(template.render(context, request))
 
 
-def short_stories(request):
-    short_stories = ShortStories.objects.all().values()  # get all members
-    template = loader.get_template('short_stories.html')
+def short_story(request):
+    short_story = ShortStories.objects.all().values()  # get all members
+    template = loader.get_template('short_story.html')
     context = {
-        'short_stories': short_stories,
+        'short_story': short_story,
     }
     return HttpResponse(template.render(context, request))
 
@@ -113,9 +113,13 @@ def movie_details(request, pk):
 
 def comic_details(request, pk):
     comic = Comic.objects.get(pk=pk)
+    auth = comic.author.all()
+    illust = comic.illustrator.all()
     template = loader.get_template('comics_detail.html')
     context = {
         'comic': comic,
+        'auth': auth,
+        'illust': illust,
     }
     return HttpResponse(template.render(context, request))
 
@@ -130,10 +134,11 @@ def series_details(request, pk):
 
 
 def short_stories_details(request, pk):
-    short_stories = ShortStories.objects.get(pk=pk)
+    short_story = ShortStories.objects.get(pk=pk)
+    auth = short_story.author.all()
     template = loader.get_template('short_stories_detail.html')
     context = {
-        'short_stories': short_stories,
+        'short_story': short_story,
     }
     return HttpResponse(template.render(context, request))
 
@@ -534,16 +539,16 @@ class SeriesDetailView(APIView):
 class AllShortStoriesView(APIView):
 
     def get(self, request, format=None):
-        short_stories = ShortStories.objects.all()
+        short_story = ShortStories.objects.all()
 
-        if not short_stories:
+        if not short_story:
             # Return a custom error response if there are no short stories
             return Response(
                 {'error': 'No short stories found.'},
                 status=status.HTTP_404_NOT_FOUND
             )
 
-        serializer = ShortStoriesSerializer(short_stories, many=True)
+        serializer = ShortStoriesSerializer(short_story, many=True)
         return Response(serializer.data)
 
 

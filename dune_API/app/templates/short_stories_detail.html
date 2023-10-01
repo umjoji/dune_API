@@ -1,0 +1,24 @@
+{% extends  "base.html" %}
+
+{% block title %}
+    Short story Details
+{% endblock %}
+
+{% block content %}
+
+    <h1>{{ short_story.title }}</h1>
+
+    <ul> Authors:
+        {% for author in auth %}
+            <ul>{{ author }}</a></ul>
+            {% empty %}
+            <li>Unknown author</li>
+        {% endfor %}
+    </ul>
+    <p>Year of release: {{ short_story.year_of_release }}</p>
+    <p>Summary: {{short_story.summary }}</p>
+    <p>Wiki link: {{ short_story.wiki_url }}</p>
+    <!-- <p>Member since: {{ mymember.joined_date }}</p> -->
+
+    <p>Back to <a href="/short_stories">short_storys</a></p>
+{% endblock %}

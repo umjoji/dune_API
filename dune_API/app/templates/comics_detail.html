@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Comic details
+{% endblock %}
+
+{% block content %}
+
+    <h1>{{ comic.title }}</h1>
+
+    <ul> Authors:
+        {% for author in auth %}
+            <ul>{{ author }}</a></ul>
+            {% empty %}
+            <li>Unknown author</li>
+        {% endfor %}
+    </ul>
+    <ul> Illustrators:
+        {% for illustrator in illust %}
+            <ul>{{ illustrator }}</a></ul>
+            {% empty %}
+            <li>Unknown author</li>
+        {% endfor %}
+    </ul>
+    <p>Year of release: {{ comic.year_of_release }}</p>
+    <p>Wiki link: {{ comic.wiki_url }}</p>
+    <p>Summary: {{ comic.summary }}</p>
+    <!-- <p>Member since: {{ mymember.joined_date }}</p> -->
+
+    <p>Back to <a href="/comics">comics</a></p>
+{% endblock %}
