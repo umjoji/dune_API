@@ -8,7 +8,11 @@
 
     <h1>{{ series.title }}</h1>
 
-    <p>Director: {{ series.director }}</p>
+    <ul>Directors:
+        {% for director in directors %}
+        <ul>{{ director }}</ul>
+        {% endfor %}
+    </ul>
     <p>Year of release: {{ series.year_of_release }}</p>
     <p>Wiki link: {{ series.wiki_url }}</p>
     <p>Summary: {{ series.summary }}</p>

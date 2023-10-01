@@ -11,7 +11,7 @@
 
     <ul>
     {% for x in short_story %}
-        <li><a href="short_stories_details/{{ x.id }}">{{ x.title }}</a></li>
+        <li><a href="/short_stories_details/{{ x.id }}">{{ x.title }}</a></li>
         {% empty %}
         <li>No short stories</li>
     {% endfor %}
