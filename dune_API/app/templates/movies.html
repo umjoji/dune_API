@@ -11,7 +11,7 @@
 
     <ul>
     {% for x in quotes %}
-        <li><a href="movie_details/{{ x.id }}">{{ x.quote }}</a></li>
+        <li><a href="/movie_details/{{ x.id }}">{{ x.title }}</a></li>
         {% empty %}
         <li>No movies</li>
     {% endfor %}
