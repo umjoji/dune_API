@@ -75,7 +75,7 @@ def comics(request):
 
 def short_story(request):
     short_story = ShortStories.objects.all().values()  # get all members
-    template = loader.get_template('short_story.html')
+    template = loader.get_template('short_stories.html')
     context = {
         'short_story': short_story,
     }
