@@ -143,6 +143,7 @@ def short_stories_details(request, pk):
     template = loader.get_template('short_stories_detail.html')
     context = {
         'short_story': short_story,
+        'auth': auth
     }
     return HttpResponse(template.render(context, request))
 
