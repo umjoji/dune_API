@@ -11,7 +11,7 @@
 
     <ul>
     {% for x in series %}
-        <li><a href="series_details/{{ x.id }}">{{ x.title }}</a></li>
+        <li><a href="/series_details/{{ x.id }}">{{ x.title }}</a></li>
         {% empty %}
         <li>No Series</li>
     {% endfor %}
