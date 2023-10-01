@@ -11,7 +11,7 @@
 
     <ul>
     {% for x in comics %}
-        <li><a href="comic_details/{{ x.id }}">{{ x.title }}</a></li>
+        <li><a href="/comic_details/{{ x.id }}">{{ x.title }}</a></li>
         {% empty %}
         <li>No comics</li>
     {% endfor %}
