@@ -12,7 +12,7 @@
         {% for author in auth %}
             <ul>{{ author }}</a></ul>
             {% empty %}
-            <li>Unknown author</li>
+            <ul>Unknown author</ul>
         {% endfor %}
     </ul>
     <p>Year of release: {{ book.year_of_release }}</p>

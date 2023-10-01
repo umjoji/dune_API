@@ -10,7 +10,7 @@
     <h1>Short stories</h1>
 
     <ul>
-    {% for x in short_stories %}
+    {% for x in short_story %}
         <li><a href="short_stories_details/{{ x.id }}">{{ x.title }}</a></li>
         {% empty %}
         <li>No short stories</li>

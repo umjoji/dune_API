@@ -116,12 +116,12 @@ def movie_details(request, pk):
 def comic_details(request, pk):
     comic = Comic.objects.get(pk=pk)
     auth = comic.author.all()
-    illust = comic.illustrator.all()
+    illustrators = comic.illustrator.all()
     template = loader.get_template('comics_detail.html')
     context = {
         'comic': comic,
         'auth': auth,
-        'illust': illust,
+        'illustrators': illustrators,
     }
     return HttpResponse(template.render(context, request))
 
@@ -129,7 +129,7 @@ def comic_details(request, pk):
 def series_details(request, pk):
     series = Series.objects.get(pk=pk)
     directors = series.director.all()
-    template = loader.get_template('series_details.html')
+    template = loader.get_template('series_detail.html')
     context = {
         'series': series,
         'directors': directors,

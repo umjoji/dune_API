@@ -16,10 +16,10 @@
         {% endfor %}
     </ul>
     <ul> Illustrators:
-        {% for illustrator in illust %}
+        {% for illustrator in illustrators %}
             <ul>{{ illustrator }}</a></ul>
             {% empty %}
-            <li>Unknown author</li>
+            <ul>Unknown author</ul>
         {% endfor %}
     </ul>
     <p>Year of release: {{ comic.year_of_release }}</p>
